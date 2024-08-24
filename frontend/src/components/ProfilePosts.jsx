@@ -1,23 +1,42 @@
 import React from 'react';
-import '../App.css'; // Ensure this is present
 
 const ProfilePosts = () => {
   return (
-    <div className="profile-posts-container">
-      <h3 className="activity-header">Activity</h3>
-      <div className="action-boxes">
-        <div className="action-box create-post-box">
-          <h4>Create Post</h4>
-          <button className="create-post-btn">Create a post</button>
+    <div className="p-5 bg-gray-100 mt-5 flex flex-col items-center">
+      <h3 className="text-3xl font-bold text-gray-900 mb-6">Employee Dashboard</h3>
+      <div className="flex flex-wrap justify-between w-full max-w-6xl gap-6">
+        {/* Create Post Box */}
+        <div className="border border-gray-300 rounded-lg p-6 shadow-lg bg-white flex-1 min-w-[300px] text-center transition-transform transform hover:scale-105">
+          <h4 className="text-2xl font-semibold mb-4 text-gray-800">Create Post</h4>
+          <p className="text-gray-700 mb-4">
+            Share updates or announcements related to employee performance or achievements. You can post notes, feedback, or important information for all employees to see.
+          </p>
+          <button className="bg-orange-600 text-white py-3 px-6 rounded-lg text-lg font-semibold mt-2 hover:bg-orange-500 transition-colors">
+            Create a Post
+          </button>
         </div>
-        <div className="action-box show-posts-box">
-          <h4>Show Posts</h4>
-          <button className="show-posts-btn">Show all posts</button>
+
+        {/* Show Posts Box */}
+        <div className="border border-gray-300 rounded-lg p-6 shadow-lg bg-white flex-1 min-w-[300px] text-center transition-transform transform hover:scale-105">
+          <h4 className="text-2xl font-semibold mb-4 text-gray-800">Show Posts</h4>
+          <p className="text-gray-700 mb-4">
+            View all posts related to employee performance, feedback, and other important announcements. This section provides a comprehensive view of recent updates and communications.
+          </p>
+          <button className="bg-orange-600 text-white py-3 px-6 rounded-lg text-lg font-semibold mt-2 hover:bg-orange-500 transition-colors">
+            Show All Posts
+          </button>
         </div>
-      </div>
-      <div className="experience-box">
-        <h4>Experience</h4>
-        <button className="add-experience-btn">+</button>
+
+        {/* Experience Box */}
+        <div className="border border-gray-300 rounded-lg p-6 shadow-lg bg-white flex-1 min-w-[300px] text-center transition-transform transform hover:scale-105 flex flex-col items-center">
+          <h4 className="text-2xl font-semibold mb-4 text-gray-800">Experience</h4>
+          <p className="text-gray-700 mb-4">
+            Add details about your professional experiences, achievements, and key contributions. This information is crucial for performance reviews and career development.
+          </p>
+          <button className="bg-orange-600 text-white py-3 px-6 rounded-lg text-lg font-semibold mt-2 hover:bg-orange-500 transition-colors h-12 flex items-center justify-center">
+            +
+          </button>
+        </div>
       </div>
     </div>
   );
