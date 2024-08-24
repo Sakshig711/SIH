@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ProfilePosts = () => {
+  const navigate = useNavigate();
+
+  const handleCreatePostClick = () => {
+    navigate('/create-post');
+  };
+
   return (
     <div className="p-5 bg-gray-100 mt-5 flex flex-col items-center">
       <h3 className="text-3xl font-bold text-gray-900 mb-6">Employee Dashboard</h3>
@@ -11,7 +18,7 @@ const ProfilePosts = () => {
           <p className="text-gray-700 mb-4">
             Share updates or announcements related to employee performance or achievements. You can post notes, feedback, or important information for all employees to see.
           </p>
-          <button className="bg-orange-600 text-white py-3 px-6 rounded-lg text-lg font-semibold mt-2 hover:bg-orange-500 transition-colors">
+          <button  onClick={handleCreatePostClick} className="bg-orange-600 text-white py-3 px-6 rounded-lg text-lg font-semibold mt-2 hover:bg-orange-500 transition-colors">
             Create a Post
           </button>
         </div>
