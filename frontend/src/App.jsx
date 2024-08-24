@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import React from 'react';
+import './App.css'; // Add your styles here
+import Profile from './components/Profile';
 
 function App() {
-
   return (
-    <>
-      HELLO
-    </>
-  )
+    <div className="App">
+      <Profile />
+    </div>
+  );
 }
 
-export default App
+export default App;
