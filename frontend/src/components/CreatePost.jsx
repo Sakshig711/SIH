@@ -1,76 +1,65 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-function AdminPage() {
-  const [pendingRequests, setPendingRequests] = useState([
-    { id: 1, name: 'Shraddha', location: 'ABC University', position: 'Assistant Professor' },
-    { id: 2, name: 'Shraddha', location: 'ABC University', position: 'Lecturer' },
-    { id: 3, name: 'Shraddha', location: 'ABC University', position: 'Actor' }
-  ]);
+const CreatePost = () => {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleView = (id) => {
-    console.log(`Viewing details for request ID: ${id}`);
-  };
-
-  const handleAccept = (id) => {
-    console.log(`Accepted request ID: ${id}`);
-    setPendingRequests(pendingRequests.filter(request => request.id !== id));
-  };
-
-  const handleDelete = (id) => {
-    console.log(`Deleted request ID: ${id}`);
-    setPendingRequests(pendingRequests.filter(request => request.id !== id));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('/api/posts', { title, content }); // Adjust the endpoint as needed
+      setMessage('Your data has been posted!');
+      setTitle('');
+      setContent('');
+    } catch (error) {
+      setMessage('An error occurred. Please try again.');
+    }
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-grow container mx-auto p-4">
-        <h1 className="text-3xl font-semibold text-center mb-6">Admin Dashboard</h1>
-
-        <h2 className="text-2xl font-semibold mb-6">Pending Teacher Requests</h2>
-        <div className="space-y-6">
-          {pendingRequests.length > 0 ? (
-            pendingRequests.map((request) => (
-              <div
-                key={request.id}
-                className="border rounded-lg p-6 bg-white shadow-md flex justify-between items-center"
-              >
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold">{request.name}</h3>
-                  <p className="text-gray-600">{request.location}</p>
-                  <p className="text-gray-600">{request.position}</p>
-                </div>
-                <div className="flex space-x-6">
-                  <button
-                    onClick={() => handleView(request.id)}
-                    className="bg-orange-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
-                  >
-                    View
-                  </button>
-                  <button
-                    onClick={() => handleAccept(request.id)}
-                    className="bg-orange-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
-                  >
-                    Accept
-                  </button>
-                  <button
-                    onClick={() => handleDelete(request.id)}
-                    className="bg-orange-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No pending requests</p>
-          )}
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-5">
+      <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800">Create a Post</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="title" className="block text-gray-700 font-semibold mb-2">Title</label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="content" className="block text-gray-700 font-semibold mb-2">Content</label>
+            <textarea
+              id="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-md"
+              rows="6"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="bg-orange-600 text-white py-3 px-6 rounded-lg hover:bg-orange-500 transition"
+          >
+            Post
+          </button>
+        </form>
+        {message && (
+          <p className={`mt-4 text-center font-semibold ${message.includes('error') ? 'text-red-600' : 'text-green-600'}`}>
+            {message}
+          </p>
+        )}
       </div>
-      <footer className="bg-beige text-center py-4 mt-auto">
-        © SIH 2024. All rights reserved.
-      </footer>
     </div>
   );
-}
+};
 
-export default AdminPage;
+export default CreatePost;
