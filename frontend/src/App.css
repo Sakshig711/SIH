@@ -3,3 +3,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem; /* Adjust this value to control the space between buttons */
+  }
+  
+  .button {
+    background-color: #F2752F;
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #e3641c;
+  }
+  
+  .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(242, 117, 47, 0.4);
+  }
+  
+  .gap{
+    display: flex;
+    gap: 5px;
+  }
