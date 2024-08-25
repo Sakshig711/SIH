@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css'; // Add your styles here
-import Profile from './components/Profile';
-import Footer from './components/Footer';
-import CreatePost from './components/CreatePost'; // Import your CreatePost component
+import AdminPage from './components/AdminPage'; // Import your AdminPage component
+import Footer from './components/Footer'; // Import your Footer component
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Profile />} />
-          <Route path="/create-post" element={<CreatePost />} />
-        </Routes>
-        <Footer />
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/admin" element={<AdminPage />} />
+            {/* Other routes can go here */}
+          </Routes>
+        </div>
+        <Footer /> {/* Make sure the Footer is at the bottom */}
       </div>
     </Router>
   );
