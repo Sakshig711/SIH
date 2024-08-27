@@ -1,0 +1,109 @@
+.submissions-container {
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  
+  .submissions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .submissions-title {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .submissions-sort {
+    display: flex;
+    align-items: center;
+  }
+  
+  .submissions-sort label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .sort-dropdown {
+    position: relative;
+  }
+  
+  .sort-dropdown select {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    appearance: none;
+    font-weight: bold;
+    width: 200px; /* Ensures sufficient width for longer options */
+  }
+  
+  .sort-dropdown::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+  }
+  
+  .submissions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .submission-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .submission-details {
+    flex-grow: 1;
+    margin-right: 20px;
+  }
+  
+  .submission-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .show-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .show-all-button {
+    background-color: #f77b4c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .show-all-button:hover {
+    background-color: #f5612b;
+  }
+
+  /* .submissions-div{
+
+  } */
+  

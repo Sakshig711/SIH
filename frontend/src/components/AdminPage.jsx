@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Footer from './Footer';  // Assuming the footer is already being imported
+import Submissions from './Submissions';
 import '../../src/App.css';
 
 
@@ -71,7 +72,11 @@ function AdminPage() {
               <p>No pending requests</p>
             )}
           </div>
+          <div className='submissions-div'>
+            <Submissions />
+          </div>
         </div>
+        
       </div>
     </div>
   );
