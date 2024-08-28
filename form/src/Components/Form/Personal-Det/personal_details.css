@@ -1,0 +1,57 @@
+.personal-details-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-sizing: border-box;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+.personal-details-form {
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.personal-details-form:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    background-color: #ff7f50;
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: -1;
+    animation: pulse 6s infinite ease-in-out;
+}
+
+
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+    width: 50%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #555;
+    margin-bottom: 15px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+.form-group textarea {
+    width: 95%;
+}
