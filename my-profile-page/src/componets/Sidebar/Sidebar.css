@@ -1,0 +1,50 @@
+.sidebar {
+    width: 200px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-right: 1px solid #ddd;
+  }
+  
+  .filter-section {
+    margin-bottom: 20px;
+  }
+  
+  .filter-section h4 {
+    color: #ff6600;
+    margin-bottom: 10px;
+  }
+  
+  .filter-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .filter-section ul li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .filter-section ul li:hover {
+    color: #ff6600;
+  }
+  
+  .filter-section label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .create-alert {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-alert:hover {
+    background-color: #e65c00;
+  }
+  
