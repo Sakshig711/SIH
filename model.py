@@ -90,5 +90,38 @@ def get_overall_summary():
 
     return jsonify(overall_summary)
 
+# Step 6: API to add a new teacher
+@app.route('/teacher', methods=['POST'])
+def add_teacher():
+    new_teacher_data = request.json
+    
+    # Validate the incoming data
+    required_fields = ['Teacher_ID', 'Teacher', 'Research_Papers', 'Attendance', 'Seminars_Attended', 'Patents', 'Consultancy', 'Publications']
+    for field in required_fields:
+        if field not in new_teacher_data:
+            return jsonify({'error': f'Missing field: {field}'}), 400
+
+    # Add the new teacher to the DataFrame
+    new_teacher = {
+        'Teacher_ID': new_teacher_data['Teacher_ID'],
+        'Teacher': new_teacher_data['Teacher'],
+        'Research_Papers': int(new_teacher_data['Research_Papers']),
+        'Attendance': int(new_teacher_data['Attendance']),
+        'Seminars_Attended': int(new_teacher_data['Seminars_Attended']),
+        'Patents': int(new_teacher_data['Patents']),
+        'Consultancy': int(new_teacher_data['Consultancy']),
+        'Publications': int(new_teacher_data['Publications'])
+    }
+    
+    global df  # To modify the global DataFrame
+    new_df = pd.DataFrame([new_teacher])
+    df = pd.concat([df, new_df], ignore_index=True)
+    
+    # Recalculate median values
+    global median_values
+    median_values = df[['Research_Papers', 'Attendance', 'Seminars_Attended', 'Patents', 'Consultancy', 'Publications']].median()
+    
+    return jsonify({'message': 'Teacher added successfully!'}), 201
+
 if __name__ == '__main__':
     app.run(debug=True)
